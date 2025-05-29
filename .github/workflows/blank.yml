@@ -5,6 +5,7 @@ on:
     # - cron: '30-59 1 * * 2-4'  # 07:00–07:29 IST
     # - cron: '0-29 2 * * 2-4'      # 07:30–08:00 IST
     - cron: '0-59 16 * * 2-4'      # 07:30–08:00 IST
+  workflow_dispatch:
 
 jobs:
   call-api:
