@@ -1,0 +1,20 @@
+name: Twice Per Minute API Call (IST 7–8 AM)
+
+on:
+  schedule:
+    # - cron: '30-59 1 * * 2-4'  # 07:00–07:29 IST
+    # - cron: '0-29 2 * * 2-4'      # 07:30–08:00 IST
+    - cron: '0-29 16 * * 2-4'      # 07:30–08:00 IST
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API Twice Per Minute
+        run: |
+          echo "Current UTC time: $(date -u +"%H:%M")"
+          
+          curl -X POST https://webhook.site/d7b9c465-df53-4fea-ad79-6b84276d8c3e
+          echo "Sleeping 30 seconds..."
+          sleep 30
+          curl -X POST https://webhook.site/d7b9c465-df53-4fea-ad79-6b84276d8c3e
